@@ -6,6 +6,7 @@ void main() {
     System.out.println("hello to the palindrome checker management system\nVersion : 1.0\nSystem initialized successfully.");
 
     String input = "madaw";
+    String reversed = "";
     int palindrome = 0;
 
     for (int i = 0; i < input.length()/2; i++){
@@ -13,6 +14,25 @@ void main() {
             palindrome +=1;
         }
     }
+    if(palindrome!=0){
+        System.out.println("Is it a palindrome? : True");
+    }
+    else{
+        System.out.println("Is it a palindrome?: False");
+    }
+
+    System.out.println("-----------------------UC3-------------------");
+
+
+
+    for (int i = input.length()-1; i >= 0; i--){
+        reversed += input.charAt(i);
+    }
+    if (reversed.equals(input)){
+        palindrome = 1;
+    }
+
+
     if(palindrome!=0){
         System.out.println("Is it a palindrome? : True");
     }
