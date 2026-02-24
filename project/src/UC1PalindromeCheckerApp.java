@@ -76,7 +76,7 @@ public class Main {
         Queue<Character> queueUC6 = new LinkedList<>();
 
         // Create a Stack to store characters in LIFO order
-        Stack<Character> stackUC6 = new Stack<>();
+        Stack<Character> stackUC6 = new Stack<>() ;
 
         // Insert each character into both queue and stack
         for (char c : inputUC6.toCharArray()) {
