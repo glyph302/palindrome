@@ -85,9 +85,6 @@ public class Main {
         }
 
         System.out.println("----------------------------UC6-------------------------------");
-        /**
-         * Use Case 6: Queue + Stack Based Palindrome Check
-         */
         String inputUC6 = "civic";
         Queue<Character> queueUC6 = new LinkedList<>();
         Stack<Character> stackUC6 = new Stack<>();
@@ -108,9 +105,6 @@ public class Main {
         System.out.println("Is Palindrome?: " + isPalindromeUC6);
 
         System.out.println("----------------------------UC7-------------------------------");
-        /**
-         * Use Case 7: Deque-Based Optimized Palindrome Checker
-         */
         String inputUC7 = "deified";
         Deque<Character> deque = new ArrayDeque<>();
 
@@ -131,9 +125,6 @@ public class Main {
         System.out.println("Result: " + (isPalindromeUC7 ? "The string is a palindrome." : "The string is NOT a palindrome."));
 
         System.out.println("----------------------------UC8-------------------------------");
-        /**
-         * Use Case 8: Linked List Based Palindrome Checker
-         */
         String inputUC8 = "racecar";
         Node head = null;
         Node tail = null;
@@ -148,7 +139,6 @@ public class Main {
             }
         }
 
-        // Fast and Slow Pointer to find middle
         Node slow = head;
         Node fast = head;
         while (fast != null && fast.next != null) {
@@ -156,7 +146,6 @@ public class Main {
             fast = fast.next.next;
         }
 
-        // Reverse second half in-place
         Node prev = null;
         Node current = slow;
         while (current != null) {
@@ -166,7 +155,6 @@ public class Main {
             current = nextTemp;
         }
 
-        // Compare halves
         Node firstHalf = head;
         Node secondHalf = prev;
         boolean isPalindromeUC8 = true;
@@ -181,8 +169,26 @@ public class Main {
 
         System.out.println("Input String: " + inputUC8);
         System.out.println("Result: " + (isPalindromeUC8 ? "Palindrome" : "NOT a Palindrome"));
-    } // End of Main Method
-} // End of Main Class
+
+        System.out.println("----------------------------UC9-------------------------------");
+        String inputUC9 = "level";
+        boolean isPalindromeUC9 = isPalindromeRecursive(inputUC9, 0, inputUC9.length() - 1);
+
+        System.out.println("Input String: " + inputUC9);
+        System.out.println("Result: " + (isPalindromeUC9 ? "The string is a palindrome." : "The string is NOT a palindrome."));
+        
+    } // End of main method
+
+    public static boolean isPalindromeRecursive(String str, int start, int end) {
+        if (start >= end) {
+            return true;
+        }
+        if (str.charAt(start) != str.charAt(end)) {
+            return false;
+        }
+        return isPalindromeRecursive(str, start + 1, end - 1);
+    }
+} // End of Main class
 
 class Node {
     char data;
