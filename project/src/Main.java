@@ -114,5 +114,46 @@ public class Main {
 
         System.out.println("Input: " + inputUC6);
         System.out.println("Is Palindrome?: " + isPalindromeUC6);
+
+       System.out.println("----------------------------UC7-------------------------------");
+        /**
+         * Use Case 7: Deque-Based Optimized Palindrome Checker
+         * Goal: Use Deque to compare front and rear elements.
+         * Description:
+         * This logic uses a Double-Ended Queue (Deque) to allow insertion 
+         * and deletion from both ends. By removing the first and last 
+         * characters simultaneously, we optimize the comparison process.
+         */
+
+        String inputUC7 = "deified";
+        
+        // Deque (Double Ended Queue) allows access to both front and rear
+        java.util.Deque<Character> deque = new java.util.ArrayDeque<>();
+
+        // Flow: Insert characters into deque
+        for (char c : inputUC7.toCharArray()) {
+            deque.addLast(c);
+        }
+
+        boolean isPalindromeUC7 = true;
+
+        // Flow: Remove first & last and Compare until empty or one element remains
+        while (deque.size() > 1) {
+            Character first = deque.removeFirst();
+            Character last = deque.removeLast();
+
+            if (!first.equals(last)) {
+                isPalindromeUC7 = false;
+                break;
+            }
+        }
+
+        // Output results
+        System.out.println("Input String: " + inputUC7);
+        if (isPalindromeUC7) {
+            System.out.println("Result: The string is a palindrome.");
+        } else {
+            System.out.println("Result: The string is NOT a palindrome.");
+        }
     }
 }
